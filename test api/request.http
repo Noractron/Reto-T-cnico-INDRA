@@ -1,0 +1,88 @@
+//se implemento esto debido a que desde postman no se puede ejecutar las rutas apuntando a aws por algun permiso en aws que no me alcanzo tiempo a investigar
+
+@url = https://x3sm7jgdf6.execute-api.us-east-2.amazonaws.com
+### Obtener todos los personajes
+GET {{url}}/dev/api/v1/personajes HTTP/1.1
+### Obtener un solo personaje
+GET {{url}}/dev/api/v1/personajes/21 HTTP/1.1
+### crear un personaje
+POST {{url}}/dev/api/v1/personajes HTTP/1.1
+Content-Type: application/json
+
+{
+    "swappi_id": "2"
+}
+
+### modificar un personaje
+
+PUT {{url}}/dev/api/v1/personajes/21 HTTP/1.1
+Content-Type: application/json
+
+{
+    "swappi_id":"2"
+}
+### eliminar un personaje
+delete {{url}}/dev/api/v1/personajes/51 HTTP/1.1
+
+
+//-----------------------------------------------------------------------------------//
+### Obtener todos los entrenadores
+GET {{url}}/dev/api/v1/entrenador HTTP/1.1
+### Obtener un solo entrenador
+GET {{url}}/dev/api/v1/entrenador/7 HTTP/1.1
+### crear un entrenador
+POST {{url}}/dev/api/v1/entrenador HTTP/1.1
+Content-Type: application/json
+
+{ 
+    "nombre":"cecilia",
+    "apellido":"carreño",
+    "edad":"26",
+    "codigo_imperial":"r0062b2",
+    "religion":"Hermandad del Resplandor Glorioso",
+    "zona_ejercicio_id":"12,13"
+}
+
+### modificar un entrenador
+
+PUT {{url}}/dev/api/v1/entrenador/7 HTTP/1.1
+Content-Type: application/json
+
+[{
+    "nombre": "cecilias",
+    //se pueden agregar varias zonas de ejercicio a un entreador
+    "zona_ejercicio_id":"12,13"
+}]
+### eliminar un entrenador
+delete {{url}}/dev/api/v1/personajes/51 HTTP/1.1
+
+
+//-----------------------------------------------------------------------------------//
+### Obtener todos las zonas de ejercicio
+GET {{url}}/dev/api/v1/zona-ejercicio HTTP/1.1
+### Obtener una sola zona de ejercicio
+GET {{url}}/dev/api/v1/zona-ejercicio/7 HTTP/1.1
+### crear una zona de ejercicio
+POST {{url}}/dev/api/v1/zona-ejercicio HTTP/1.1
+Content-Type: application/json
+
+{ 
+    "planeta_id":"12",
+    "personaje_id":"21",
+    //se pueden agregar varios entrenadores a una zona de ejercicio
+    "entrenador_id":"1,7"
+}
+### modificar una zona de ejercicio
+PUT {{url}}/dev/api/v1/zona-ejercicio/7 HTTP/1.1
+Content-Type: application/json
+
+{ 
+    "planeta_id":"12",
+    "personaje_id":"21",
+    "entrenador_id":"1,7"
+}
+
+### eliminar una zona de ejercicio
+delete {{url}}/dev/api/v1/zona-ejercicio/51 HTTP/1.1
+
+
